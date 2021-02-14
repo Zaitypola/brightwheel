@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "to": {
+      "type": "string",
+      "format": "email"
+    },
+    "to_name": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string",
+      "format": "email"
+    },
+    "from_name": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "to",
+    "to_name",
+    "from",
+    "from_name",
+    "subject",
+    "body"
+  ],
+  "additionalProperties": false
+}
