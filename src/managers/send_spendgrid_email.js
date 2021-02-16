@@ -1,6 +1,9 @@
 'use strict'
 
 const axios = require('axios')
+
+const transformBodyHtml = require('./transform_body_html')
+
 const config = require('config')
 
 module.exports = async emailBody => {
@@ -15,7 +18,7 @@ module.exports = async emailBody => {
             sender: `${emailBody.from_name} <${emailBody.from}>`,
             recipient: `${emailBody.to_name} <${emailBody.to}>`,
             subject: emailBody.subject,
-            body: emailBody.body
+            body: transformBodyHtml(emailBody.body)
         }
 
         console.log(`Sending ${JSON.stringify(data, undefined, 2)} to Spendgrid`)

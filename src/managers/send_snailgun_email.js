@@ -2,6 +2,8 @@
 
 const axios = require('axios')
 
+const transformBodyHtml = require('./transform_body_html')
+
 const config = require('config')
 
 module.exports = async emailBody => {
@@ -18,7 +20,7 @@ module.exports = async emailBody => {
             to_email: emailBody.to,
             to_name: emailBody.to_name,
             subject: emailBody.subject,
-            body: emailBody.body
+            body: transformBodyHtml(emailBody.body)
         }
 
         console.log(`Sending ${JSON.stringify(data, undefined, 2)} to Snailgun`)
@@ -29,7 +31,7 @@ module.exports = async emailBody => {
 
         return {statusCode: 202, msg: 'Email accepted for processing'}
     } catch (error) {
-        console.log('Error while sending email with Snailgun', error.message)
+        console.log('Error while sending email with Snailgun', error.toJSON())
         throw new Error('Snailgun email error')
     }
 }

@@ -1,4 +1,4 @@
-EMAIL_SERVICE: spendgrid
+EMAIL_SERVICE: snailgun
 spendgrid:
   url: https://bw-interviews.herokuapp.com/spendgrid/send_email
   api_key: api_key_pADwCsjCtFEmUc30cNjN3q7r
